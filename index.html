@@ -271,12 +271,18 @@
             gap: 8px;
             font-size: 0.9rem;
             font-weight: 600;
+            flex-shrink: 0;
         }
 
         .theme-toggle:hover {
             background: var(--accent-gold);
             color: #ffffff;
             transform: translateY(-1px);
+        }
+
+        .theme-toggle:focus {
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 2px;
         }
 
         [data-theme="dark"] .theme-toggle {
@@ -293,6 +299,10 @@
             font-size: 1.1rem;
         }
 
+        .theme-text {
+            display: inline;
+        }
+
         /* Mobile Menu */
         .mobile-menu-toggle {
             background: none;
@@ -302,13 +312,19 @@
             cursor: pointer;
             padding: 8px;
             transition: all 0.3s ease;
-            display: flex;
+            display: none;
             align-items: center;
             gap: 0.5rem;
+            aria-label: "Open navigation menu";
         }
 
         .mobile-menu-toggle:hover {
             color: var(--accent-gold);
+        }
+
+        .mobile-menu-toggle:focus {
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 2px;
         }
 
         .menu-label {
@@ -337,7 +353,7 @@
 
         .mobile-nav.active {
             display: block;
-            max-height: 500px;
+            max-height: 600px;
         }
 
         .mobile-nav ul {
@@ -357,9 +373,11 @@
             font-weight: 500;
         }
 
-        .mobile-nav a:hover {
+        .mobile-nav a:hover,
+        .mobile-nav a:focus {
             background: rgba(243, 156, 18, 0.1);
             color: var(--accent-gold);
+            outline: none;
         }
 
         .mobile-theme-toggle {
@@ -379,9 +397,11 @@
             width: fit-content;
         }
 
-        .mobile-theme-toggle:hover {
+        .mobile-theme-toggle:hover,
+        .mobile-theme-toggle:focus {
             background: var(--accent-gold);
             color: #ffffff;
+            outline: none;
         }
 
         .logo {
@@ -830,7 +850,14 @@
             color: #ffffff;
         }
 
-        /* Responsive Design */
+        /* Responsive Design - Right to Left Collapse */
+        @media (max-width: 1200px) {
+            /* At 1200px, show hamburger menu but keep all nav items visible */
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+
         @media (max-width: 1024px) {
             .nav-link-faq {
                 display: none;
@@ -846,6 +873,15 @@
         @media (max-width: 768px) {
             .nav-link-about {
                 display: none;
+            }
+            
+            /* Hide theme text on smaller screens */
+            .theme-text {
+                display: none;
+            }
+            
+            .theme-toggle {
+                padding: 8px 12px;
             }
         }
 
@@ -874,6 +910,18 @@
             .services-grid,
             .portfolio-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-link-portfolio {
+                display: none;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .nav-link-services {
+                display: none;
             }
         }
 
@@ -1173,39 +1221,39 @@
             <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li class="nav-link-services"><a href="#services">Services</a></li>
+                    <li class="nav-link-portfolio"><a href="#portfolio">Portfolio</a></li>
                     <li class="nav-link-clients"><a href="#clients">Clients</a></li>
                     <li class="nav-link-about"><a href="#about">About Us</a></li>
                     <li class="nav-link-resources"><a href="#blog">Resources</a></li>
                     <li class="nav-link-faq"><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button class="theme-toggle" id="themeToggle">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
                     <span class="theme-icon" id="themeIcon">☀️</span>
-                    <span id="themeText">Helios</span>
+                    <span class="theme-text" id="themeText">Helios</span>
                 </button>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                    <span id="hamburgerIcon">⚡</span>
-                    <span class="menu-label" id="menuLabel">More</span>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false">
+                    <span id="hamburgerIcon">☰</span>
+                    <span class="menu-label" id="menuLabel">Menu</span>
                 </button>
             </div>
         </div>
     </nav>
 
     <!-- Mobile Navigation Menu -->
-    <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation menu">
         <ul id="mobileNavLinks">
-            <li class="always-mobile"><a href="#clients" onclick="closeMobileMenu()">Clients</a></li>
-            <li class="always-mobile"><a href="#about" onclick="closeMobileMenu()">About Us</a></li>
-            <li class="always-mobile"><a href="#blog" onclick="closeMobileMenu()">Resources</a></li>
-            <li class="always-mobile"><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
-            <li class="responsive-mobile" style="display: none;"><a href="#home" onclick="closeMobileMenu()">Home</a></li>
-            <li class="responsive-mobile" style="display: none;"><a href="#services" onclick="closeMobileMenu()">Services</a></li>
-            <li class="responsive-mobile" style="display: none;"><a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a></li>
-            <li class="responsive-mobile" style="display: none;"><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+            <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+            <li><a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a></li>
+            <li><a href="#clients" onclick="closeMobileMenu()">Clients</a></li>
+            <li><a href="#about" onclick="closeMobileMenu()">About Us</a></li>
+            <li><a href="#blog" onclick="closeMobileMenu()">Resources</a></li>
+            <li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
+            <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
         </ul>
-        <button class="mobile-theme-toggle" id="mobileThemeToggle">
+        <button class="mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark/light theme">
             <span class="theme-icon" id="mobileThemeIcon">☀️</span>
             <span id="mobileThemeText">Helios</span>
         </button>
@@ -1600,60 +1648,70 @@
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const mobileNav = document.getElementById('mobileNav');
         const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const menuLabel = document.getElementById('menuLabel');
         
         function toggleMobileMenu() {
-            mobileNav.classList.toggle('active');
             const isOpen = mobileNav.classList.contains('active');
-            hamburgerIcon.textContent = isOpen ? '✕' : '⚡';
-            menuLabel.textContent = isOpen ? 'Close' : 'More';
+            
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        }
+        
+        function openMobileMenu() {
+            mobileNav.classList.add('active');
+            hamburgerIcon.textContent = '✕';
+            menuLabel.textContent = 'Close';
+            mobileMenuToggle.setAttribute('aria-expanded', 'true');
+            
+            // Focus management for accessibility
+            const firstLink = mobileNav.querySelector('a');
+            if (firstLink) {
+                firstLink.focus();
+            }
         }
         
         function closeMobileMenu() {
             mobileNav.classList.remove('active');
-            hamburgerIcon.textContent = '⚡';
-            menuLabel.textContent = 'More';
+            hamburgerIcon.textContent = '☰';
+            menuLabel.textContent = 'Menu';
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
         }
 
-        // Function to update mobile menu based on screen size
-        function updateMobileMenu() {
-            const mobileNavLinks = document.getElementById('mobileNavLinks');
-            const responsiveItems = mobileNavLinks.querySelectorAll('.responsive-mobile');
-            const screenWidth = window.innerWidth;
-            
-            // Reset all responsive items
-            responsiveItems.forEach(item => {
-                item.style.display = 'none';
-            });
-            
-            // Show items based on screen size (right to left priority)
-            if (screenWidth <= 650) {
-                // Show Contact
-                responsiveItems[3].style.display = 'block'; // Contact
-            }
-            if (screenWidth <= 768) {
-                // Show Portfolio
-                responsiveItems[2].style.display = 'block'; // Portfolio
-            }
-            if (screenWidth <= 900) {
-                // Show Services
-                responsiveItems[1].style.display = 'block'; // Services
-            }
-            if (screenWidth <= 1024) {
-                // Show Home
-                responsiveItems[0].style.display = 'block'; // Home
-            }
-        }
-
-        // Update mobile menu on load and resize
-        updateMobileMenu();
-        window.addEventListener('resize', updateMobileMenu);
-        
+        // Mobile menu toggle event
         mobileMenuToggle.addEventListener('click', toggleMobileMenu);
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!mobileNav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
                 closeMobileMenu();
+            }
+        });
+
+        // Close mobile menu on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+                mobileMenuToggle.focus();
+            }
+        });
+
+        // Handle keyboard navigation in mobile menu
+        mobileNav.addEventListener('keydown', function(event) {
+            if (event.key === 'Tab') {
+                const focusableElements = mobileNav.querySelectorAll('a, button');
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+                
+                if (event.shiftKey && document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                } else if (!event.shiftKey && document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
             }
         });
 
