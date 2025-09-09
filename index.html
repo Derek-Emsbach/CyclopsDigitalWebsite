@@ -1,1828 +1,2198 @@
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Cyclops Digital. Forging the future, one vision at a time.</p>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer>
+	<div class="container">
+		<p>
+			&copy; 2025 Cyclops Digital. Forging the future, one vision at a
+			time.
+		</p>
+	</div>
+</footer>
 
-    <!-- Chat Widget -->
-    <div class="chat-widget">
-        <div class="chat-options" id="chatOptions">
-            <a href="mailto:info@cyclopsdigital.com" class="chat-option" onclick="trackEvent('chat_contact', {'method': 'email'})">
-                📧 Email Us
-            </a>
-            <a href="https://calendly.com/cyclopsdigital" target="_blank" class="chat-option" onclick="trackEvent('chat_contact', {'method': 'calendar'})">
-                📅 Schedule Call
-            </a>
-            <a href="tel:+1234567890" class="chat-option" onclick="trackEvent('chat_contact', {'method': 'phone'})">
-                📞 Call Now
-            </a>
-        </div>
-        <button class="chat-toggle" id="chatToggle">💬</button>
-    </div>
+<!-- Chat Widget -->
+<div class="chat-widget">
+	<div class="chat-options" id="chatOptions">
+		<a
+			href="mailto:info@cyclopsdigital.com"
+			class="chat-option"
+			onclick="trackEvent('chat_contact', {'method': 'email'})"
+		>
+			📧 Email Us
+		</a>
+		<a
+			href="https://calendly.com/cyclopsdigital"
+			target="_blank"
+			class="chat-option"
+			onclick="trackEvent('chat_contact', {'method': 'calendar'})"
+		>
+			📅 Schedule Call
+		</a>
+		<a
+			href="tel:+1234567890"
+			class="chat-option"
+			onclick="trackEvent('chat_contact', {'method': 'phone'})"
+		>
+			📞 Call Now
+		</a>
+	</div>
+	<button class="chat-toggle" id="chatToggle">💬</button>
+</div>
 
-    <!-- PWA Install Prompt -->
-    <div class="pwa-install-prompt" id="pwaPrompt">
-        <div>
-            <strong>Install Cyclops Digital App</strong>
-            <p>Get quick access to our services and resources!</p>
-        </div>
-        <div>
-            <button class="pwa-install-btn" id="pwaInstallBtn">Install</button>
-            <button class="pwa-close-btn" id="pwaCloseBtn">Later</button>
-        </div>
-    </div>
-    <!DOCTYPE html>
+<!-- PWA Install Prompt -->
+<div class="pwa-install-prompt" id="pwaPrompt">
+	<div>
+		<strong>Install Cyclops Digital App</strong>
+		<p>Get quick access to our services and resources!</p>
+	</div>
+	<div>
+		<button class="pwa-install-btn" id="pwaInstallBtn">Install</button>
+		<button class="pwa-close-btn" id="pwaCloseBtn">Later</button>
+	</div>
+</div>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Cyclops Digital - Professional App & Web Development | Custom Software Solutions</title>
-    <meta name="description" content="Cyclops Digital specializes in professional app and web development. From landing pages to full-stack mobile applications, we forge digital solutions that drive business growth.">
-    <meta name="keywords" content="web development, app development, mobile apps, full-stack development, custom software, React, Node.js, iOS development, Android development, e-commerce solutions">
-    <meta name="author" content="Cyclops Digital">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
-    
-    <!-- Open Graph Meta Tags (Social Media) -->
-    <meta property="og:title" content="Cyclops Digital - Forge Your Digital Vision">
-    <meta property="og:description" content="Professional app and web development services. We create everything from simple landing pages to complex full-stack applications.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cyclopsdigital.com">
-    <meta property="og:image" content="https://cyclopsdigital.com/images/cyclops-digital-og-image.jpg">
-    <meta property="og:site_name" content="Cyclops Digital">
-    <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Cyclops Digital - Professional App & Web Development">
-    <meta name="twitter:description" content="From landing pages to full-stack applications, we forge digital solutions that drive business growth.">
-    <meta name="twitter:image" content="https://cyclopsdigital.com/images/cyclops-digital-twitter-card.jpg">
-    <meta name="twitter:site" content="@cyclopsdigital">
-    <meta name="twitter:creator" content="@cyclopsdigital">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://cyclopsdigital.com">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/manifest.json">
-    
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#f39c12">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Cyclops Digital">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="msapplication-TileColor" content="#f39c12">
-    
-    <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://www.google-analytics.com">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID', {
-            page_title: document.title,
-            page_location: window.location.href,
-            custom_map: {'custom_parameter_1': 'business_type'}
-        });
-        
-        // Track custom events
-        function trackEvent(eventName, parameters = {}) {
-            gtag('event', eventName, parameters);
-        }
-        
-        // Track business inquiries
-        function trackBusinessInquiry(service_type) {
-            trackEvent('business_inquiry', {
-                'service_type': service_type,
-                'value': 1
-            });
-        }
-    </script>
-    
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Cyclops Digital",
-        "url": "https://cyclopsdigital.com",
-        "logo": "https://cyclopsdigital.com/images/cyclops-digital-logo.png",
-        "description": "Professional app and web development company specializing in custom software solutions, mobile applications, and modern web development.",
-        "foundingDate": "2024",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-XXX-XXX-XXXX",
-            "contactType": "customer service",
-            "email": "info@cyclopsdigital.com",
-            "availableLanguage": "English"
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "US"
-        },
-        "sameAs": [
-            "https://linkedin.com/company/cyclops-digital",
-            "https://twitter.com/cyclopsdigital",
-            "https://github.com/cyclopsdigital"
-        ],
-        "services": [
-            {
-                "@type": "Service",
-                "name": "Web Development",
-                "description": "Custom website development from landing pages to complex web applications"
-            },
-            {
-                "@type": "Service", 
-                "name": "Mobile App Development",
-                "description": "iOS and Android application development with modern frameworks"
-            },
-            {
-                "@type": "Service",
-                "name": "Full-Stack Development", 
-                "description": "Complete software solutions with frontend, backend, and database integration"
-            }
-        ]
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Cyclops Digital",
-        "url": "https://cyclopsdigital.com",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://cyclopsdigital.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-gold: #f39c12;
-            --dark-blue: #1a252f;
-            --light-gray: #ecf0f1;
-            --white: #ffffff;
-            --text-dark: #2c3e50;
-            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        /* Dark mode variables */
-        [data-theme="dark"] {
-            --primary-color: #e8eaed !important;
-            --secondary-color: #5dade2 !important;
-            --accent-gold: #f39c12 !important;
-            --dark-blue: #0f1419 !important;
-            --light-gray: #1e2328 !important;
-            --white: #121212 !important;
-            --text-dark: #e8eaed !important;
-            --gradient-bg: linear-gradient(135deg, #1e2328 0%, #2d3748 100%) !important;
-        }
-
-        /* Auto theme detection */
-        @media (prefers-color-scheme: dark) {
-            :root:not([data-theme="light"]) {
-                --primary-color: #e8eaed;
-                --secondary-color: #5dade2;
-                --accent-gold: #f39c12;
-                --dark-blue: #0f1419;
-                --light-gray: #1e2328;
-                --white: #121212;
-                --text-dark: #e8eaed;
-                --gradient-bg: linear-gradient(135deg, #1e2328 0%, #2d3748 100%);
-            }
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-            background: var(--white);
-            transition: all 0.3s ease;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(52, 73, 94, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        [data-theme="dark"] nav {
-            background: rgba(15, 20, 25, 0.95);
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        /* Theme Toggle Button */
-        .theme-toggle {
-            background: none;
-            border: 2px solid var(--accent-gold);
-            border-radius: 50px;
-            padding: 8px 16px;
-            color: var(--accent-gold);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .theme-toggle:hover {
-            background: var(--accent-gold);
-            color: #ffffff;
-            transform: translateY(-1px);
-        }
-
-        .theme-toggle:focus {
-            outline: 2px solid var(--accent-gold);
-            outline-offset: 2px;
-        }
-
-        [data-theme="dark"] .theme-toggle {
-            color: var(--accent-gold);
-            border-color: var(--accent-gold);
-        }
-
-        [data-theme="dark"] .theme-toggle:hover {
-            background: var(--accent-gold);
-            color: #ffffff;
-        }
-
-        .theme-icon {
-            font-size: 1.1rem;
-        }
-
-        .theme-text {
-            display: inline;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-toggle {
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 8px;
-            transition: all 0.3s ease;
-            display: none;
-            align-items: center;
-            gap: 0.5rem;
-            aria-label: "Open navigation menu";
-        }
-
-        .mobile-menu-toggle:hover {
-            color: var(--accent-gold);
-        }
-
-        .mobile-menu-toggle:focus {
-            outline: 2px solid var(--accent-gold);
-            outline-offset: 2px;
-        }
-
-        .menu-label {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: rgba(52, 73, 94, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-            z-index: 999;
-            max-height: 0;
-            overflow: hidden;
-        }
-
-        [data-theme="dark"] .mobile-nav {
-            background: rgba(15, 20, 25, 0.98);
-        }
-
-        .mobile-nav.active {
-            display: block;
-            max-height: 600px;
-        }
-
-        .mobile-nav ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .mobile-nav a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            display: block;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            font-weight: 500;
-        }
-
-        .mobile-nav a:hover,
-        .mobile-nav a:focus {
-            background: rgba(243, 156, 18, 0.1);
-            color: var(--accent-gold);
-            outline: none;
-        }
-
-        .mobile-theme-toggle {
-            margin: 1rem 2rem;
-            background: none;
-            border: 2px solid var(--accent-gold);
-            border-radius: 50px;
-            padding: 12px 20px;
-            color: var(--accent-gold);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            width: fit-content;
-        }
-
-        .mobile-theme-toggle:hover,
-        .mobile-theme-toggle:focus {
-            background: var(--accent-gold);
-            color: #ffffff;
-            outline: none;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--accent-gold);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            position: relative;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        [data-theme="dark"] .nav-links a {
-            color: #ffffff;
-        }
-
-        [data-theme="dark"] .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: var(--gradient-bg);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: var(--white);
-            text-align: center;
-            max-width: 800px;
-        }
-
-        [data-theme="dark"] .hero-content {
-            color: #ffffff;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-            color: #ffffff;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            font-weight: 500;
-        }
-
-        .cta-button {
-            background: var(--accent-gold);
-            color: var(--white);
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 600;
-        }
-
-        .cta-button:hover {
-            background: #e67e22;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        /* Cyclops Eye Animation */
-        .cyclops-eye {
-            position: absolute;
-            top: 50%;
-            right: 5%;
-            width: 120px;
-            height: 120px;
-            border: 4px solid var(--accent-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse 3s ease-in-out infinite;
-            z-index: 1;
-        }
-
-        .cyclops-eye::before {
-            content: '';
-            width: 50px;
-            height: 50px;
-            background: var(--accent-gold);
-            border-radius: 50%;
-            animation: blink 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        @keyframes blink {
-            0%, 90%, 100% { opacity: 1; }
-            95% { opacity: 0.3; }
-        }
-
-        /* Section Styles */
-        section {
-            padding: 80px 0;
-            background: var(--white);
-            transition: all 0.3s ease;
-        }
-
-        section:nth-child(even) {
-            background: var(--light-gray);
-        }
-
-        [data-theme="dark"] section {
-            background: var(--white);
-            color: var(--text-dark);
-        }
-
-        [data-theme="dark"] section:nth-child(even) {
-            background: var(--light-gray);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--accent-gold);
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid transparent;
-        }
-
-        [data-theme="dark"] .service-card {
-            background: var(--light-gray);
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        [data-theme="dark"] .service-card:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-bg);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-title {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-price {
-            font-size: 2rem;
-            color: var(--accent-gold);
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-
-        /* Portfolio Section */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .portfolio-item {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        [data-theme="dark"] .portfolio-item {
-            background: var(--light-gray);
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        [data-theme="dark"] .portfolio-item:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .portfolio-image {
-            height: 200px;
-            background: var(--gradient-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.2rem;
-        }
-
-        .portfolio-content {
-            padding: 1.5rem;
-        }
-
-        /* Clients Section */
-        .client-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .client-logo {
-            padding: 1rem 2rem;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            font-weight: bold;
-            color: var(--primary-color);
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        [data-theme="dark"] .client-logo {
-            background: var(--light-gray);
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .team-member {
-            text-align: center;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        [data-theme="dark"] .team-member {
-            background: var(--light-gray);
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .member-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: var(--gradient-bg);
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 2rem;
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .contact-form {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        [data-theme="dark"] .contact-item {
-            background: var(--light-gray);
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-blue);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 0;
-            transition: all 0.3s ease;
-        }
-
-        [data-theme="dark"] footer {
-            background: #0a0a0a;
-            color: #ffffff;
-        }
-
-        /* Responsive Design - Right to Left Collapse */
-        @media (max-width: 1200px) {
-            /* At 1200px, show hamburger menu but keep all nav items visible */
-            .mobile-menu-toggle {
-                display: flex;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .nav-link-faq {
-                display: none;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .nav-link-resources {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-link-about {
-                display: none;
-            }
-            
-            /* Hide theme text on smaller screens */
-            .theme-text {
-                display: none;
-            }
-            
-            .theme-toggle {
-                padding: 8px 12px;
-            }
-        }
-
-        @media (max-width: 650px) {
-            .nav-link-clients {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .cyclops-eye {
-                display: none;
-            }
-
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid,
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-link-portfolio {
-                display: none;
-            }
-        }
-
-        @media (max-width: 380px) {
-            .nav-link-services {
-                display: none;
-            }
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Interactive Elements */
-        .interactive-counter {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .tech-item {
-            background: var(--white);
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        [data-theme="dark"] .tech-item {
-            background: var(--light-gray);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .tech-item:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(243, 156, 18, 0.3);
-        }
-
-        /* FAQ Styles */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--white);
-            margin-bottom: 1rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        [data-theme="dark"] .faq-item {
-            background: var(--light-gray);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--primary-color);
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: rgba(243, 156, 18, 0.1);
-        }
-
-        .faq-icon {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 1.5rem;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            padding: 0 1.5rem 1.5rem 1.5rem;
-        }
-
-        /* Blog/Resources Styles */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .blog-card {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        [data-theme="dark"] .blog-card {
-            background: var(--light-gray);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .blog-image {
-            height: 200px;
-            background: var(--gradient-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        .blog-content {
-            padding: 1.5rem;
-        }
-
-        .blog-meta {
-            color: var(--accent-gold);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-title {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        /* Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .chat-options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-        }
-
-        .chat-options.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .chat-option {
-            background: var(--white);
-            border: 2px solid var(--accent-gold);
-            border-radius: 50px;
-            padding: 12px 20px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        [data-theme="dark"] .chat-option {
-            background: var(--light-gray);
-            color: var(--text-dark);
-        }
-
-        .chat-option:hover {
-            background: var(--accent-gold);
-            color: white;
-            transform: translateX(-5px);
-        }
-
-        .chat-toggle {
-            background: var(--accent-gold);
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .chat-toggle:hover {
-            background: #e67e22;
-            transform: scale(1.1);
-        }
-
-        /* Social Proof Stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        [data-theme="dark"] .stat-item {
-            background: var(--light-gray);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        /* PWA Install Prompt */
-        .pwa-install-prompt {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: var(--accent-gold);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            max-width: 300px;
-        }
-
-        .pwa-install-prompt.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .pwa-install-btn {
-            background: white;
-            color: var(--accent-gold);
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            margin: 0.5rem 0.5rem 0 0;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .pwa-close-btn {
-            background: none;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            cursor: pointer;
-            opacity: 0.8;
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="#home" class="logo">👁️ CYCLOPS</a>
-            <div class="nav-right">
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li class="nav-link-services"><a href="#services">Services</a></li>
-                    <li class="nav-link-portfolio"><a href="#portfolio">Portfolio</a></li>
-                    <li class="nav-link-clients"><a href="#clients">Clients</a></li>
-                    <li class="nav-link-about"><a href="#about">About Us</a></li>
-                    <li class="nav-link-resources"><a href="#blog">Resources</a></li>
-                    <li class="nav-link-faq"><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
-                    <span class="theme-icon" id="themeIcon">☀️</span>
-                    <span class="theme-text" id="themeText">Helios</span>
-                </button>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false">
-                    <span id="hamburgerIcon">☰</span>
-                    <span class="menu-label" id="menuLabel">Menu</span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Navigation Menu -->
-    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation menu">
-        <ul id="mobileNavLinks">
-            <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
-            <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
-            <li><a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a></li>
-            <li><a href="#clients" onclick="closeMobileMenu()">Clients</a></li>
-            <li><a href="#about" onclick="closeMobileMenu()">About Us</a></li>
-            <li><a href="#blog" onclick="closeMobileMenu()">Resources</a></li>
-            <li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
-            <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
-        </ul>
-        <button class="mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark/light theme">
-            <span class="theme-icon" id="mobileThemeIcon">☀️</span>
-            <span id="mobileThemeText">Helios</span>
-        </button>
-    </div>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Forge Your Digital Vision</h1>
-                <p class="hero-subtitle">Where mythic innovation meets modern development</p>
-                <a href="#contact" class="cta-button" onclick="trackBusinessInquiry('hero_cta')">Start Your Quest</a>
-            </div>
-        </div>
-        <div class="cyclops-eye"></div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services">
-        <div class="container">
-            <h2 class="section-title">Choose Your Path</h2>
-            <div class="services-grid">
-                <div class="service-card" onclick="trackEvent('service_view', {'service_name': 'forge'})">
-                    <div class="service-icon">⚒️</div>
-                    <h3 class="service-title">FORGE</h3>
-                    <div class="service-price">Starting at $2,500</div>
-                    <p>Essential digital foundations - landing pages, business sites, and simple web applications crafted with precision.</p>
-                    <ul style="text-align: left; margin-top: 1rem;">
-                        <li>Responsive Design</li>
-                        <li>Basic SEO</li>
-                        <li>Contact Forms</li>
-                        <li>CMS Integration</li>
-                    </ul>
-                </div>
-                <div class="service-card" onclick="trackEvent('service_view', {'service_name': 'oracle'})">
-                    <div class="service-icon">🔮</div>
-                    <h3 class="service-title">ORACLE</h3>
-                    <div class="service-price">Starting at $7,500</div>
-                    <p>Advanced digital prophecies - e-commerce platforms, advanced web apps, and database-driven solutions.</p>
-                    <ul style="text-align: left; margin-top: 1rem;">
-                        <li>Custom Web Applications</li>
-                        <li>E-commerce Solutions</li>
-                        <li>User Authentication</li>
-                        <li>API Integration</li>
-                    </ul>
-                </div>
-                <div class="service-card" onclick="trackEvent('service_view', {'service_name': 'titan'})">
-                    <div class="service-icon">⚡</div>
-                    <h3 class="service-title">TITAN</h3>
-                    <div class="service-price">Starting at $15,000</div>
-                    <p>Legendary digital empires - full-stack mobile and web applications with enterprise-level architecture.</p>
-                    <ul style="text-align: left; margin-top: 1rem;">
-                        <li>iOS & Android Apps</li>
-                        <li>Cloud Infrastructure</li>
-                        <li>Scalable Architecture</li>
-                        <li>24/7 Support</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <div class="container">
-            <h2 class="section-title">Legendary Creations</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">Featured Project Coming Soon</div>
-                    <div class="portfolio-content">
-                        <h3>Project Odyssey</h3>
-                        <p>A revolutionary web application showcasing the power of modern development. Built with cutting-edge technologies.</p>
-                        <p><strong>Tech Stack:</strong> React, Node.js, MongoDB</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">Featured Project Coming Soon</div>
-                    <div class="portfolio-content">
-                        <h3>Mobile Athena</h3>
-                        <p>Cross-platform mobile application delivering wisdom through intuitive design and seamless functionality.</p>
-                        <p><strong>Tech Stack:</strong> React Native, Firebase</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">Featured Project Coming Soon</div>
-                    <div class="portfolio-content">
-                        <h3>E-Commerce Hermes</h3>
-                        <p>Lightning-fast e-commerce platform that delivers messages of commerce with divine efficiency.</p>
-                        <p><strong>Tech Stack:</strong> Next.js, Stripe, PostgreSQL</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Clients Section -->
-    <section id="clients">
-        <div class="container">
-            <h2 class="section-title">Trusted by Visionaries</h2>
-            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
-                We forge digital solutions for companies that dare to dream big
-            </p>
-            <div class="client-logos">
-                <div class="client-logo">
-                    <h3>Laser Tech</h3>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">Precision Engineering Solutions</p>
-                </div>
-                <div class="client-logo" style="opacity: 0.6;">
-                    <h3>Your Company</h3>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Next Partnership</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Proof Stats Section -->
-    <section id="stats">
-        <div class="container">
-            <h2 class="section-title">Forged with Excellence</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="interactive-counter" data-target="50">0</div>
-                    <h4>Projects Completed</h4>
-                    <p>Digital visions brought to life</p>
-                </div>
-                <div class="stat-item">
-                    <div class="interactive-counter" data-target="100">0</div>
-                    <h4>Client Satisfaction</h4>
-                    <p>Percentage of happy clients</p>
-                </div>
-                <div class="stat-item">
-                    <div class="interactive-counter" data-target="24">0</div>
-                    <h4>Hour Support</h4>
-                    <p>Always available for our clients</p>
-                </div>
-                <div class="stat-item">
-                    <div class="interactive-counter" data-target="5">0</div>
-                    <h4>Years Experience</h4>
-                    <p>Crafting digital excellence</p>
-                </div>
-            </div>
-            
-            <!-- Tech Stack -->
-            <h3 style="text-align: center; margin: 3rem 0 1rem; color: var(--primary-color);">Technologies We Master</h3>
-            <div class="tech-stack">
-                <div class="tech-item" onclick="trackEvent('tech_interest', {'technology': 'react'})">
-                    <strong>⚛️ React</strong>
-                </div>
-                <div class="tech-item" onclick="trackEvent('tech_interest', {'technology': 'node'})">
-                    <strong>🟢 Node.js</strong>
-                </div>
-                <div class="tech-item" onclick="trackEvent('tech_interest', {'technology': 'mobile'})">
-                    <strong>📱 React Native</strong>
-                </div>
-                <div class="tech-item" onclick="trackEvent('tech_interest', {'technology': 'database'})">
-                    <strong>🗄️ MongoDB</strong>
-                </div>
-                <div class="tech-item" onclick="trackEvent('tech_interest', {'technology': 'cloud'})">
-                    <strong>☁️ AWS</strong>
-                </div>
-                <div class="tech-item" onclick="trackEvent('tech_interest', {'technology': 'frontend'})">
-                    <strong>🎨 Next.js</strong>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">The Vision Behind the Eye</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Our Digital Odyssey</h3>
-                    <p>At Cyclops Digital, we believe that every great digital creation begins with a singular vision—a focused perspective that cuts through complexity to reveal elegant solutions. Like the mythical cyclops who forged the weapons of gods, we craft digital experiences that are both powerful and purposeful.</p>
-                    
-                    <p>Our mission transcends mere code and design. We are digital architects, building bridges between imagination and reality, between business needs and user experiences. Every project is a quest, every solution a legendary artifact in the making.</p>
-                    
-                    <p>Founded on principles of innovation, precision, and unwavering focus, Cyclops Digital continues to grow, always maintaining our core vision: to transform ambitious ideas into digital realities that stand the test of time.</p>
-                </div>
-                <div class="team-member">
-                    <div class="member-avatar">👤</div>
-                    <h3 style="color: var(--primary-color);">Lead Developer</h3>
-                    <p style="color: var(--secondary-color); margin-bottom: 1rem;">Chief Digital Architect</p>
-                    <p>Wielding years of experience in full-stack development, our lead architect transforms complex challenges into elegant solutions. Specializing in modern web technologies and mobile development.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Begin Your Digital Quest</h2>
-            <div class="contact-grid">
-                <div class="contact-form">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Send Us Your Vision</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="project">Project Type</label>
-                            <select id="project" name="project" style="width: 100%; padding: 12px; border: 2px solid rgba(0,0,0,0.1); border-radius: 8px; background: var(--white); color: var(--text-dark); transition: all 0.3s ease;">
-                                <option value="">Select a service</option>
-                                <option value="forge">Forge - Basic Website</option>
-                                <option value="oracle">Oracle - Advanced Web App</option>
-                                <option value="titan">Titan - Full-Stack Solution</option>
-                                <option value="consultation">Consultation</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Tell Us About Your Vision</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button" style="width: 100%;" onclick="trackEvent('contact_form_submit', {'form_type': 'main_contact'})">Launch Quest</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@cyclopsdigital.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item" onclick="window.open('https://calendly.com/cyclopsdigital', '_blank')">
-                        <div class="contact-icon">📅</div>
-                        <div>
-                            <h4>Schedule a Call</h4>
-                            <p>Book a free consultation</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>Available upon request</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">⏰</div>
-                        <div>
-                            <h4>Response Time</h4>
-                            <p>Within 24 hours</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🌍</div>
-                        <div>
-                            <h4>Service Area</h4>
-                            <p>Global Digital Solutions</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Cyclops Digital. Forging the future, one vision at a time.</p>
-        </div>
-    </footer>
-
-    <script>
-        // PWA Installation
-        let deferredPrompt;
-        
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            document.getElementById('pwaPrompt').classList.add('show');
-        });
-
-        document.getElementById('pwaInstallBtn').addEventListener('click', async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                trackEvent('pwa_install', {'outcome': outcome});
-                deferredPrompt = null;
-                document.getElementById('pwaPrompt').classList.remove('show');
-            }
-        });
-
-        document.getElementById('pwaCloseBtn').addEventListener('click', () => {
-            document.getElementById('pwaPrompt').classList.remove('show');
-            trackEvent('pwa_install', {'outcome': 'dismissed'});
-        });
-
-        // Animated Counters
-        function animateCounter(element) {
-            const target = parseInt(element.getAttribute('data-target'));
-            const increment = target / 100;
-            let current = 0;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target;
-                    if (target === 100) element.textContent = target + '%';
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current);
-                    if (target === 100) element.textContent = Math.floor(current) + '%';
-                }
-            }, 20);
-        }
-
-        // Intersection Observer for counters
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.interactive-counter');
-                    counters.forEach(counter => {
-                        if (!counter.classList.contains('animated')) {
-                            counter.classList.add('animated');
-                            animateCounter(counter);
-                        }
-                    });
-                }
-            });
-        }, observerOptions);
-
-        // Observe stats section
-        const statsSection = document.getElementById('stats');
-        if (statsSection) {
-            observer.observe(statsSection);
-        }
-
-        // FAQ Toggle
-        function toggleFaq(element) {
-            const faqItem = element.parentElement;
-            const isActive = faqItem.classList.contains('active');
-            
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Open clicked item if it wasn't active
-            if (!isActive) {
-                faqItem.classList.add('active');
-                trackEvent('faq_interaction', {'question': element.textContent.trim()});
-            }
-        }
-
-        // Chat Widget
-        const chatToggle = document.getElementById('chatToggle');
-        const chatOptions = document.getElementById('chatOptions');
-        let chatOpen = false;
-
-        chatToggle.addEventListener('click', () => {
-            chatOpen = !chatOpen;
-            chatOptions.classList.toggle('show', chatOpen);
-            chatToggle.textContent = chatOpen ? '✕' : '💬';
-            trackEvent('chat_widget', {'action': chatOpen ? 'open' : 'close'});
-        });
-
-        // Close chat when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.chat-widget') && chatOpen) {
-                chatOpen = false;
-                chatOptions.classList.remove('show');
-                chatToggle.textContent = '💬';
-            }
-        });
-
-        // Service Worker Registration (PWA)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then((registration) => {
-                        console.log('SW registered: ', registration);
-                    })
-                    .catch((registrationError) => {
-                        console.log('SW registration failed: ', registrationError);
-                    });
-            });
-        }
-
-        // Mobile Menu Management
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileNav = document.getElementById('mobileNav');
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const menuLabel = document.getElementById('menuLabel');
-        
-        function toggleMobileMenu() {
-            const isOpen = mobileNav.classList.contains('active');
-            
-            if (isOpen) {
-                closeMobileMenu();
-            } else {
-                openMobileMenu();
-            }
-        }
-        
-        function openMobileMenu() {
-            mobileNav.classList.add('active');
-            hamburgerIcon.textContent = '✕';
-            menuLabel.textContent = 'Close';
-            mobileMenuToggle.setAttribute('aria-expanded', 'true');
-            
-            // Focus management for accessibility
-            const firstLink = mobileNav.querySelector('a');
-            if (firstLink) {
-                firstLink.focus();
-            }
-        }
-        
-        function closeMobileMenu() {
-            mobileNav.classList.remove('active');
-            hamburgerIcon.textContent = '☰';
-            menuLabel.textContent = 'Menu';
-            mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        }
-
-        // Mobile menu toggle event
-        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!mobileNav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-                closeMobileMenu();
-            }
-        });
-
-        // Close mobile menu on Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && mobileNav.classList.contains('active')) {
-                closeMobileMenu();
-                mobileMenuToggle.focus();
-            }
-        });
-
-        // Handle keyboard navigation in mobile menu
-        mobileNav.addEventListener('keydown', function(event) {
-            if (event.key === 'Tab') {
-                const focusableElements = mobileNav.querySelectorAll('a, button');
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-                
-                if (event.shiftKey && document.activeElement === firstElement) {
-                    event.preventDefault();
-                    lastElement.focus();
-                } else if (!event.shiftKey && document.activeElement === lastElement) {
-                    event.preventDefault();
-                    firstElement.focus();
-                }
-            }
-        });
-
-        // Theme Management
-        const themeToggle = document.getElementById('themeToggle');
-        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const themeText = document.getElementById('themeText');
-        const mobileThemeIcon = document.getElementById('mobileThemeIcon');
-        const mobileThemeText = document.getElementById('mobileThemeText');
-        
-        // Check for saved theme preference or default to system preference
-        const getPreferredTheme = () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                return savedTheme;
-            }
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-
-        // Set theme
-        const setTheme = (theme) => {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            
-            if (theme === 'dark') {
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Nyx';
-                mobileThemeIcon.textContent = '🌙';
-                mobileThemeText.textContent = 'Nyx';
-            } else {
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Helios';
-                mobileThemeIcon.textContent = '☀️';
-                mobileThemeText.textContent = 'Helios';
-            }
-        };
-
-        // Initialize theme
-        setTheme(getPreferredTheme());
-
-        // Theme toggle events
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-            trackEvent('theme_change', {'new_theme': newTheme});
-        });
-
-        mobileThemeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-            trackEvent('theme_change', {'new_theme': newTheme});
-        });
-
-        // Listen for system theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
-                setTheme(e.matches ? 'dark' : 'light');
-            }
-        });
-
-        // Simple form handling
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Track form submission
-            const serviceType = document.getElementById('project').value;
-            trackBusinessInquiry(serviceType || 'general');
-            trackEvent('form_submission', {
-                'form_name': 'contact_form',
-                'service_type': serviceType
-            });
-            
-            alert('Thank you for your message! We\'ll be in touch within 24 hours to begin forging your digital vision.');
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    trackEvent('navigation', {'section': targetId.substring(1)});
-                }
-            });
-        });
-
-        // Add navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (window.scrollY > 50) {
-                if (currentTheme === 'dark') {
-                    nav.style.background = 'rgba(15, 20, 25, 0.98)';
-                } else {
-                    nav.style.background = 'rgba(52, 73, 94, 0.98)';
-                }
-            } else {
-                if (currentTheme === 'dark') {
-                    nav.style.background = 'rgba(15, 20, 25, 0.95)';
-                } else {
-                    nav.style.background = 'rgba(52, 73, 94, 0.95)';
-                }
-            }
-        });
-    </script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- SEO Meta Tags -->
+		<title>
+			Cyclops Digital - Professional App & Web Development | Custom
+			Software Solutions
+		</title>
+		<meta
+			name="description"
+			content="Cyclops Digital specializes in professional app and web development. From landing pages to full-stack mobile applications, we forge digital solutions that drive business growth."
+		/>
+		<meta
+			name="keywords"
+			content="web development, app development, mobile apps, full-stack development, custom software, React, Node.js, iOS development, Android development, e-commerce solutions"
+		/>
+		<meta name="author" content="Cyclops Digital" />
+		<meta name="robots" content="index, follow" />
+		<meta name="language" content="English" />
+		<meta name="revisit-after" content="7 days" />
+
+		<!-- Open Graph Meta Tags (Social Media) -->
+		<meta
+			property="og:title"
+			content="Cyclops Digital - Forge Your Digital Vision"
+		/>
+		<meta
+			property="og:description"
+			content="Professional app and web development services. We create everything from simple landing pages to complex full-stack applications."
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://cyclopsdigital.com" />
+		<meta
+			property="og:image"
+			content="https://cyclopsdigital.com/images/cyclops-digital-og-image.jpg"
+		/>
+		<meta property="og:site_name" content="Cyclops Digital" />
+		<meta property="og:locale" content="en_US" />
+
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta
+			name="twitter:title"
+			content="Cyclops Digital - Professional App & Web Development"
+		/>
+		<meta
+			name="twitter:description"
+			content="From landing pages to full-stack applications, we forge digital solutions that drive business growth."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://cyclopsdigital.com/images/cyclops-digital-twitter-card.jpg"
+		/>
+		<meta name="twitter:site" content="@cyclopsdigital" />
+		<meta name="twitter:creator" content="@cyclopsdigital" />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href="https://cyclopsdigital.com" />
+
+		<!-- Favicon -->
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/manifest.json" />
+
+		<!-- PWA Meta Tags -->
+		<meta name="theme-color" content="#f39c12" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<meta name="apple-mobile-web-app-title" content="Cyclops Digital" />
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+		<meta name="msapplication-TileColor" content="#f39c12" />
+
+		<!-- Preconnect for Performance -->
+		<link rel="preconnect" href="https://www.google-analytics.com" />
+		<link rel="preconnect" href="https://www.googletagmanager.com" />
+
+		<!-- Google Analytics 4 -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "GA_MEASUREMENT_ID", {
+				page_title: document.title,
+				page_location: window.location.href,
+				custom_map: { custom_parameter_1: "business_type" },
+			});
+
+			// Track custom events
+			function trackEvent(eventName, parameters = {}) {
+				gtag("event", eventName, parameters);
+			}
+
+			// Track business inquiries
+			function trackBusinessInquiry(service_type) {
+				trackEvent("business_inquiry", {
+					service_type: service_type,
+					value: 1,
+				});
+			}
+		</script>
+
+		<!-- Schema.org Structured Data -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "Cyclops Digital",
+				"url": "https://cyclopsdigital.com",
+				"logo": "https://cyclopsdigital.com/images/cyclops-digital-logo.png",
+				"description": "Professional app and web development company specializing in custom software solutions, mobile applications, and modern web development.",
+				"foundingDate": "2024",
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"telephone": "+1-XXX-XXX-XXXX",
+					"contactType": "customer service",
+					"email": "info@cyclopsdigital.com",
+					"availableLanguage": "English"
+				},
+				"address": {
+					"@type": "PostalAddress",
+					"addressCountry": "US"
+				},
+				"sameAs": [
+					"https://linkedin.com/company/cyclops-digital",
+					"https://twitter.com/cyclopsdigital",
+					"https://github.com/cyclopsdigital"
+				],
+				"services": [
+					{
+						"@type": "Service",
+						"name": "Web Development",
+						"description": "Custom website development from landing pages to complex web applications"
+					},
+					{
+						"@type": "Service",
+						"name": "Mobile App Development",
+						"description": "iOS and Android application development with modern frameworks"
+					},
+					{
+						"@type": "Service",
+						"name": "Full-Stack Development",
+						"description": "Complete software solutions with frontend, backend, and database integration"
+					}
+				]
+			}
+		</script>
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"name": "Cyclops Digital",
+				"url": "https://cyclopsdigital.com",
+				"potentialAction": {
+					"@type": "SearchAction",
+					"target": "https://cyclopsdigital.com/search?q={search_term_string}",
+					"query-input": "required name=search_term_string"
+				}
+			}
+		</script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				--primary-color: #2c3e50;
+				--secondary-color: #3498db;
+				--accent-gold: #f39c12;
+				--dark-blue: #1a252f;
+				--light-gray: #ecf0f1;
+				--white: #ffffff;
+				--text-dark: #2c3e50;
+				--gradient-bg: linear-gradient(
+					135deg,
+					#667eea 0%,
+					#764ba2 100%
+				);
+			}
+
+			/* Dark mode variables */
+			[data-theme="dark"] {
+				--primary-color: #e8eaed !important;
+				--secondary-color: #5dade2 !important;
+				--accent-gold: #f39c12 !important;
+				--dark-blue: #0f1419 !important;
+				--light-gray: #1e2328 !important;
+				--white: #121212 !important;
+				--text-dark: #e8eaed !important;
+				--gradient-bg: linear-gradient(
+					135deg,
+					#1e2328 0%,
+					#2d3748 100%
+				) !important;
+			}
+
+			/* Auto theme detection */
+			@media (prefers-color-scheme: dark) {
+				:root:not([data-theme="light"]) {
+					--primary-color: #e8eaed;
+					--secondary-color: #5dade2;
+					--accent-gold: #f39c12;
+					--dark-blue: #0f1419;
+					--light-gray: #1e2328;
+					--white: #121212;
+					--text-dark: #e8eaed;
+					--gradient-bg: linear-gradient(
+						135deg,
+						#1e2328 0%,
+						#2d3748 100%
+					);
+				}
+			}
+
+			body {
+				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+				line-height: 1.6;
+				color: var(--text-dark);
+				overflow-x: hidden;
+				background: var(--white);
+				transition: all 0.3s ease;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+
+			/* Navigation */
+			nav {
+				position: fixed;
+				top: 0;
+				width: 100%;
+				background: rgba(52, 73, 94, 0.95);
+				backdrop-filter: blur(10px);
+				z-index: 1000;
+				padding: 1rem 0;
+				transition: all 0.3s ease;
+			}
+
+			[data-theme="dark"] nav {
+				background: rgba(15, 20, 25, 0.95);
+			}
+
+			nav .container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.nav-right {
+				display: flex;
+				align-items: center;
+				gap: 2rem;
+			}
+
+			/* Theme Toggle Button */
+			.theme-toggle {
+				background: none;
+				border: 2px solid var(--accent-gold);
+				border-radius: 50px;
+				padding: 8px 16px;
+				color: var(--accent-gold);
+				cursor: pointer;
+				transition: all 0.3s ease;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 0.9rem;
+				font-weight: 600;
+				flex-shrink: 0;
+			}
+
+			.theme-toggle:hover {
+				background: var(--accent-gold);
+				color: #ffffff;
+				transform: translateY(-1px);
+			}
+
+			.theme-toggle:focus {
+				outline: 2px solid var(--accent-gold);
+				outline-offset: 2px;
+			}
+
+			[data-theme="dark"] .theme-toggle {
+				color: var(--accent-gold);
+				border-color: var(--accent-gold);
+			}
+
+			[data-theme="dark"] .theme-toggle:hover {
+				background: var(--accent-gold);
+				color: #ffffff;
+			}
+
+			.theme-icon {
+				font-size: 1.1rem;
+			}
+
+			.theme-text {
+				display: inline;
+			}
+
+			/* Mobile Menu */
+			.mobile-menu-toggle {
+				background: none;
+				border: none;
+				color: #ffffff;
+				font-size: 1.5rem;
+				cursor: pointer;
+				padding: 8px;
+				transition: all 0.3s ease;
+				display: none;
+				align-items: center;
+				gap: 0.5rem;
+				aria-label: "Open navigation menu";
+			}
+
+			.mobile-menu-toggle:hover {
+				color: var(--accent-gold);
+			}
+
+			.mobile-menu-toggle:focus {
+				outline: 2px solid var(--accent-gold);
+				outline-offset: 2px;
+			}
+
+			.menu-label {
+				font-size: 0.9rem;
+				font-weight: 500;
+			}
+
+			.mobile-nav {
+				display: none;
+				position: fixed;
+				top: 70px;
+				left: 0;
+				right: 0;
+				background: rgba(52, 73, 94, 0.98);
+				backdrop-filter: blur(10px);
+				padding: 1rem 0;
+				transition: all 0.3s ease;
+				z-index: 999;
+				max-height: 0;
+				overflow: hidden;
+			}
+
+			[data-theme="dark"] .mobile-nav {
+				background: rgba(15, 20, 25, 0.98);
+			}
+
+			.mobile-nav.active {
+				display: block;
+				max-height: 600px;
+			}
+
+			.mobile-nav ul {
+				list-style: none;
+				display: flex;
+				flex-direction: column;
+				gap: 0;
+			}
+
+			.mobile-nav a {
+				color: #ffffff;
+				text-decoration: none;
+				padding: 1rem 2rem;
+				display: block;
+				transition: all 0.3s ease;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				font-weight: 500;
+			}
+
+			.mobile-nav a:hover,
+			.mobile-nav a:focus {
+				background: rgba(243, 156, 18, 0.1);
+				color: var(--accent-gold);
+				outline: none;
+			}
+
+			.mobile-theme-toggle {
+				margin: 1rem 2rem;
+				background: none;
+				border: 2px solid var(--accent-gold);
+				border-radius: 50px;
+				padding: 12px 20px;
+				color: var(--accent-gold);
+				cursor: pointer;
+				transition: all 0.3s ease;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 0.9rem;
+				font-weight: 600;
+				width: fit-content;
+			}
+
+			.mobile-theme-toggle:hover,
+			.mobile-theme-toggle:focus {
+				background: var(--accent-gold);
+				color: #ffffff;
+				outline: none;
+			}
+
+			.logo {
+				font-size: 1.8rem;
+				font-weight: bold;
+				color: var(--accent-gold);
+				text-decoration: none;
+			}
+
+			.nav-links {
+				display: flex;
+				list-style: none;
+				gap: 2rem;
+			}
+
+			.nav-links a {
+				color: #ffffff;
+				text-decoration: none;
+				transition: color 0.3s ease;
+				position: relative;
+				font-weight: 500;
+			}
+
+			.nav-links a:hover {
+				color: var(--accent-gold);
+			}
+
+			[data-theme="dark"] .nav-links a {
+				color: #ffffff;
+			}
+
+			[data-theme="dark"] .nav-links a:hover {
+				color: var(--accent-gold);
+			}
+
+			.nav-links a::after {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 2px;
+				bottom: -5px;
+				left: 0;
+				background-color: var(--accent-gold);
+				transition: width 0.3s ease;
+			}
+
+			.nav-links a:hover::after {
+				width: 100%;
+			}
+
+			/* Hero Section */
+			.hero {
+				height: 100vh;
+				background: var(--gradient-bg);
+				display: flex;
+				align-items: center;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.hero-content {
+				position: relative;
+				z-index: 2;
+				color: var(--white);
+				text-align: center;
+				max-width: 800px;
+			}
+
+			[data-theme="dark"] .hero-content {
+				color: #ffffff;
+			}
+
+			.hero h1 {
+				font-size: 4rem;
+				margin-bottom: 1rem;
+				font-weight: 700;
+				text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+				color: #ffffff;
+			}
+
+			.hero-subtitle {
+				font-size: 1.5rem;
+				margin-bottom: 2rem;
+				opacity: 0.95;
+				color: #ffffff;
+				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+				font-weight: 500;
+			}
+
+			.cta-button {
+				background: var(--accent-gold);
+				color: var(--white);
+				padding: 15px 30px;
+				border: none;
+				border-radius: 50px;
+				font-size: 1.1rem;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				text-decoration: none;
+				display: inline-block;
+				font-weight: 600;
+			}
+
+			.cta-button:hover {
+				background: #e67e22;
+				transform: translateY(-2px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+			}
+
+			/* Cyclops Eye Animation */
+			.cyclops-eye {
+				position: absolute;
+				top: 50%;
+				right: 5%;
+				width: 120px;
+				height: 120px;
+				border: 4px solid var(--accent-gold);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				animation: pulse 3s ease-in-out infinite;
+				z-index: 1;
+			}
+
+			.cyclops-eye::before {
+				content: "";
+				width: 50px;
+				height: 50px;
+				background: var(--accent-gold);
+				border-radius: 50%;
+				animation: blink 4s ease-in-out infinite;
+			}
+
+			@keyframes pulse {
+				0%,
+				100% {
+					transform: scale(1);
+				}
+				50% {
+					transform: scale(1.1);
+				}
+			}
+
+			@keyframes blink {
+				0%,
+				90%,
+				100% {
+					opacity: 1;
+				}
+				95% {
+					opacity: 0.3;
+				}
+			}
+
+			/* Section Styles */
+			section {
+				padding: 80px 0;
+				background: var(--white);
+				transition: all 0.3s ease;
+			}
+
+			section:nth-child(even) {
+				background: var(--light-gray);
+			}
+
+			[data-theme="dark"] section {
+				background: var(--white);
+				color: var(--text-dark);
+			}
+
+			[data-theme="dark"] section:nth-child(even) {
+				background: var(--light-gray);
+			}
+
+			.section-title {
+				text-align: center;
+				font-size: 2.5rem;
+				margin-bottom: 3rem;
+				color: var(--primary-color);
+				position: relative;
+			}
+
+			.section-title::after {
+				content: "";
+				position: absolute;
+				bottom: -10px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 60px;
+				height: 3px;
+				background: var(--accent-gold);
+			}
+
+			/* Services Section */
+			.services-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+
+			.service-card {
+				background: var(--white);
+				padding: 2rem;
+				border-radius: 15px;
+				text-align: center;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+				position: relative;
+				overflow: hidden;
+				border: 1px solid transparent;
+			}
+
+			[data-theme="dark"] .service-card {
+				background: var(--light-gray);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+			}
+
+			.service-card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+			}
+
+			[data-theme="dark"] .service-card:hover {
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+			}
+
+			.service-card::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 4px;
+				background: var(--gradient-bg);
+			}
+
+			.service-icon {
+				font-size: 3rem;
+				color: var(--secondary-color);
+				margin-bottom: 1rem;
+			}
+
+			.service-title {
+				font-size: 1.5rem;
+				color: var(--primary-color);
+				margin-bottom: 1rem;
+			}
+
+			.service-price {
+				font-size: 2rem;
+				color: var(--accent-gold);
+				font-weight: bold;
+				margin: 1rem 0;
+			}
+
+			/* Portfolio Section */
+			.portfolio-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+
+			.portfolio-item {
+				background: var(--white);
+				border-radius: 15px;
+				overflow: hidden;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+				border: 1px solid transparent;
+			}
+
+			[data-theme="dark"] .portfolio-item {
+				background: var(--light-gray);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+			}
+
+			.portfolio-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+			}
+
+			[data-theme="dark"] .portfolio-item:hover {
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+			}
+
+			.portfolio-image {
+				height: 200px;
+				background: var(--gradient-bg);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--white);
+				font-size: 1.2rem;
+			}
+
+			.portfolio-content {
+				padding: 1.5rem;
+			}
+
+			/* Clients Section */
+			.client-logos {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 3rem;
+				margin-top: 3rem;
+				flex-wrap: wrap;
+			}
+
+			.client-logo {
+				padding: 1rem 2rem;
+				background: var(--white);
+				border-radius: 10px;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				font-weight: bold;
+				color: var(--primary-color);
+				border: 1px solid transparent;
+				transition: all 0.3s ease;
+			}
+
+			[data-theme="dark"] .client-logo {
+				background: var(--light-gray);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+			}
+
+			/* About Section */
+			.about-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3rem;
+				align-items: center;
+				margin-top: 3rem;
+			}
+
+			.about-text {
+				font-size: 1.1rem;
+				line-height: 1.8;
+			}
+
+			.team-member {
+				text-align: center;
+				padding: 2rem;
+				background: var(--white);
+				border-radius: 15px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+				border: 1px solid transparent;
+				transition: all 0.3s ease;
+			}
+
+			[data-theme="dark"] .team-member {
+				background: var(--light-gray);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+			}
+
+			.member-avatar {
+				width: 120px;
+				height: 120px;
+				border-radius: 50%;
+				background: var(--gradient-bg);
+				margin: 0 auto 1rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--white);
+				font-size: 2rem;
+			}
+
+			/* Contact Section */
+			.contact-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3rem;
+				margin-top: 3rem;
+			}
+
+			.contact-form {
+				background: var(--white);
+				padding: 2rem;
+				border-radius: 15px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+			}
+
+			.form-group {
+				margin-bottom: 1.5rem;
+			}
+
+			.form-group label {
+				display: block;
+				margin-bottom: 0.5rem;
+				color: var(--primary-color);
+				font-weight: 600;
+			}
+
+			.form-group input,
+			.form-group textarea {
+				width: 100%;
+				padding: 12px;
+				border: 2px solid #ddd;
+				border-radius: 8px;
+				font-size: 1rem;
+				transition: border-color 0.3s ease;
+			}
+
+			.form-group input:focus,
+			.form-group textarea:focus {
+				outline: none;
+				border-color: var(--secondary-color);
+			}
+
+			.contact-info {
+				display: flex;
+				flex-direction: column;
+				gap: 2rem;
+			}
+
+			.contact-item {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				padding: 1rem;
+				background: var(--white);
+				border-radius: 10px;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				border: 1px solid transparent;
+				transition: all 0.3s ease;
+			}
+
+			[data-theme="dark"] .contact-item {
+				background: var(--light-gray);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+			}
+
+			.contact-icon {
+				font-size: 1.5rem;
+				color: var(--secondary-color);
+			}
+
+			/* Footer */
+			footer {
+				background: var(--dark-blue);
+				color: var(--white);
+				text-align: center;
+				padding: 2rem 0;
+				transition: all 0.3s ease;
+			}
+
+			[data-theme="dark"] footer {
+				background: #0a0a0a;
+				color: #ffffff;
+			}
+
+			/* Responsive Design - Right to Left Collapse */
+			@media (max-width: 1200px) {
+				/* At 1200px, show hamburger menu but keep all nav items visible */
+				.mobile-menu-toggle {
+					display: flex;
+				}
+			}
+
+			@media (max-width: 1024px) {
+				.nav-link-faq {
+					display: none;
+				}
+			}
+
+			@media (max-width: 900px) {
+				.nav-link-resources {
+					display: none;
+				}
+			}
+
+			@media (max-width: 768px) {
+				.nav-link-about {
+					display: none;
+				}
+
+				/* Hide theme text on smaller screens */
+				.theme-text {
+					display: none;
+				}
+
+				.theme-toggle {
+					padding: 8px 12px;
+				}
+			}
+
+			@media (max-width: 650px) {
+				.nav-link-clients {
+					display: none;
+				}
+
+				.hero h1 {
+					font-size: 2.5rem;
+				}
+
+				.hero-subtitle {
+					font-size: 1.2rem;
+				}
+
+				.cyclops-eye {
+					display: none;
+				}
+
+				.about-grid,
+				.contact-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.services-grid,
+				.portfolio-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.nav-link-portfolio {
+					display: none;
+				}
+			}
+
+			@media (max-width: 380px) {
+				.nav-link-services {
+					display: none;
+				}
+			}
+
+			/* Smooth Scrolling */
+			html {
+				scroll-behavior: smooth;
+			}
+
+			/* Interactive Elements */
+			.interactive-counter {
+				font-size: 2.5rem;
+				font-weight: bold;
+				color: var(--accent-gold);
+				margin-bottom: 0.5rem;
+			}
+
+			.tech-stack {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1rem;
+				justify-content: center;
+				margin-top: 2rem;
+			}
+
+			.tech-item {
+				background: var(--white);
+				padding: 1rem;
+				border-radius: 10px;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+				cursor: pointer;
+				border: 1px solid transparent;
+			}
+
+			[data-theme="dark"] .tech-item {
+				background: var(--light-gray);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.tech-item:hover {
+				transform: translateY(-5px) scale(1.05);
+				box-shadow: 0 10px 25px rgba(243, 156, 18, 0.3);
+			}
+
+			/* FAQ Styles */
+			.faq-container {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			.faq-item {
+				background: var(--white);
+				margin-bottom: 1rem;
+				border-radius: 15px;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				overflow: hidden;
+				transition: all 0.3s ease;
+				border: 1px solid transparent;
+			}
+
+			[data-theme="dark"] .faq-item {
+				background: var(--light-gray);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.faq-question {
+				padding: 1.5rem;
+				cursor: pointer;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-weight: 600;
+				color: var(--primary-color);
+				transition: all 0.3s ease;
+			}
+
+			.faq-question:hover {
+				background: rgba(243, 156, 18, 0.1);
+			}
+
+			.faq-icon {
+				font-size: 1.2rem;
+				transition: transform 0.3s ease;
+			}
+
+			.faq-item.active .faq-icon {
+				transform: rotate(45deg);
+			}
+
+			.faq-answer {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.3s ease;
+				padding: 0 1.5rem;
+			}
+
+			.faq-item.active .faq-answer {
+				max-height: 200px;
+				padding: 0 1.5rem 1.5rem 1.5rem;
+			}
+
+			/* Blog/Resources Styles */
+			.blog-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+
+			.blog-card {
+				background: var(--white);
+				border-radius: 15px;
+				overflow: hidden;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+				cursor: pointer;
+				border: 1px solid transparent;
+			}
+
+			[data-theme="dark"] .blog-card {
+				background: var(--light-gray);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.blog-card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+			}
+
+			.blog-image {
+				height: 200px;
+				background: var(--gradient-bg);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-size: 3rem;
+			}
+
+			.blog-content {
+				padding: 1.5rem;
+			}
+
+			.blog-meta {
+				color: var(--accent-gold);
+				font-size: 0.9rem;
+				margin-bottom: 0.5rem;
+			}
+
+			.blog-title {
+				color: var(--primary-color);
+				margin-bottom: 1rem;
+				font-size: 1.2rem;
+			}
+
+			/* Chat Widget */
+			.chat-widget {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				z-index: 1000;
+			}
+
+			.chat-options {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				margin-bottom: 10px;
+				opacity: 0;
+				transform: translateY(20px);
+				transition: all 0.3s ease;
+			}
+
+			.chat-options.show {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			.chat-option {
+				background: var(--white);
+				border: 2px solid var(--accent-gold);
+				border-radius: 50px;
+				padding: 12px 20px;
+				color: var(--primary-color);
+				text-decoration: none;
+				font-size: 0.9rem;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			}
+
+			[data-theme="dark"] .chat-option {
+				background: var(--light-gray);
+				color: var(--text-dark);
+			}
+
+			.chat-option:hover {
+				background: var(--accent-gold);
+				color: white;
+				transform: translateX(-5px);
+			}
+
+			.chat-toggle {
+				background: var(--accent-gold);
+				border: none;
+				border-radius: 50%;
+				width: 60px;
+				height: 60px;
+				color: white;
+				font-size: 1.5rem;
+				cursor: pointer;
+				box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
+				transition: all 0.3s ease;
+			}
+
+			.chat-toggle:hover {
+				background: #e67e22;
+				transform: scale(1.1);
+			}
+
+			/* Social Proof Stats */
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+
+			.stat-item {
+				text-align: center;
+				padding: 2rem;
+				background: var(--white);
+				border-radius: 15px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+				border: 1px solid transparent;
+			}
+
+			[data-theme="dark"] .stat-item {
+				background: var(--light-gray);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.stat-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+			}
+
+			/* PWA Install Prompt */
+			.pwa-install-prompt {
+				position: fixed;
+				bottom: 20px;
+				left: 20px;
+				background: var(--accent-gold);
+				color: white;
+				padding: 1rem 1.5rem;
+				border-radius: 10px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				transform: translateY(100px);
+				opacity: 0;
+				transition: all 0.3s ease;
+				z-index: 1000;
+				max-width: 300px;
+			}
+
+			.pwa-install-prompt.show {
+				transform: translateY(0);
+				opacity: 1;
+			}
+
+			.pwa-install-btn {
+				background: white;
+				color: var(--accent-gold);
+				border: none;
+				padding: 8px 16px;
+				border-radius: 5px;
+				margin: 0.5rem 0.5rem 0 0;
+				cursor: pointer;
+				font-weight: 600;
+			}
+
+			.pwa-close-btn {
+				background: none;
+				color: white;
+				border: none;
+				padding: 8px 16px;
+				cursor: pointer;
+				opacity: 0.8;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav>
+			<div class="container">
+				<a href="#home" class="logo">
+					<img
+						src="Images/Cyclops Digital LLC Logo (240 x 60 px).svg"
+						alt="Cyclops Digital Logo"
+						style="
+							height: 48px;
+							width: auto;
+							vertical-align: middle;
+						"
+					/>
+				</a>
+				<div class="nav-right">
+					<ul class="nav-links">
+						<li><a href="#home">Home</a></li>
+						<li class="nav-link-services">
+							<a href="#services">Services</a>
+						</li>
+						<li class="nav-link-portfolio">
+							<a href="#portfolio">Portfolio</a>
+						</li>
+						<li class="nav-link-clients">
+							<a href="#clients">Clients</a>
+						</li>
+						<li class="nav-link-about">
+							<a href="#about">About Us</a>
+						</li>
+						<li class="nav-link-resources">
+							<a href="#blog">Resources</a>
+						</li>
+						<li class="nav-link-faq"><a href="#faq">FAQ</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+					<button
+						class="theme-toggle"
+						id="themeToggle"
+						aria-label="Toggle dark/light theme"
+					>
+						<span class="theme-icon" id="themeIcon">☀️</span>
+						<span class="theme-text" id="themeText">Helios</span>
+					</button>
+					<button
+						class="mobile-menu-toggle"
+						id="mobileMenuToggle"
+						aria-label="Open navigation menu"
+						aria-expanded="false"
+					>
+						<span id="hamburgerIcon">☰</span>
+						<span class="menu-label" id="menuLabel">Menu</span>
+					</button>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Mobile Navigation Menu -->
+		<div
+			class="mobile-nav"
+			id="mobileNav"
+			role="navigation"
+			aria-label="Mobile navigation menu"
+		>
+			<ul id="mobileNavLinks">
+				<li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+				<li>
+					<a href="#services" onclick="closeMobileMenu()">Services</a>
+				</li>
+				<li>
+					<a href="#portfolio" onclick="closeMobileMenu()"
+						>Portfolio</a
+					>
+				</li>
+				<li>
+					<a href="#clients" onclick="closeMobileMenu()">Clients</a>
+				</li>
+				<li>
+					<a href="#about" onclick="closeMobileMenu()">About Us</a>
+				</li>
+				<li>
+					<a href="#blog" onclick="closeMobileMenu()">Resources</a>
+				</li>
+				<li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
+				<li>
+					<a href="#contact" onclick="closeMobileMenu()">Contact</a>
+				</li>
+			</ul>
+			<button
+				class="mobile-theme-toggle"
+				id="mobileThemeToggle"
+				aria-label="Toggle dark/light theme"
+			>
+				<span class="theme-icon" id="mobileThemeIcon">☀️</span>
+				<span id="mobileThemeText">Helios</span>
+			</button>
+		</div>
+
+		<!-- Hero Section -->
+		<section id="home" class="hero">
+			<div class="container">
+				<div class="hero-content">
+					<h1>Forge Your Digital Vision</h1>
+					<p class="hero-subtitle">
+						Where mythic innovation meets modern development
+					</p>
+					<a
+						href="#contact"
+						class="cta-button"
+						onclick="trackBusinessInquiry('hero_cta')"
+						>Start Your Quest</a
+					>
+				</div>
+			</div>
+			<div class="cyclops-eye"></div>
+		</section>
+
+		<!-- Services Section -->
+		<section id="services">
+			<div class="container">
+				<h2 class="section-title">Choose Your Path</h2>
+				<div class="services-grid">
+					<div
+						class="service-card"
+						onclick="trackEvent('service_view', {'service_name': 'forge'})"
+					>
+						<div class="service-icon">⚒️</div>
+						<h3 class="service-title">FORGE</h3>
+						<div class="service-price">Starting at $2,500</div>
+						<p>
+							Essential digital foundations - landing pages,
+							business sites, and simple web applications crafted
+							with precision.
+						</p>
+						<ul style="text-align: left; margin-top: 1rem">
+							<li>Responsive Design</li>
+							<li>Basic SEO</li>
+							<li>Contact Forms</li>
+							<li>CMS Integration</li>
+						</ul>
+					</div>
+					<div
+						class="service-card"
+						onclick="trackEvent('service_view', {'service_name': 'oracle'})"
+					>
+						<div class="service-icon">🔮</div>
+						<h3 class="service-title">ORACLE</h3>
+						<div class="service-price">Starting at $7,500</div>
+						<p>
+							Advanced digital prophecies - e-commerce platforms,
+							advanced web apps, and database-driven solutions.
+						</p>
+						<ul style="text-align: left; margin-top: 1rem">
+							<li>Custom Web Applications</li>
+							<li>E-commerce Solutions</li>
+							<li>User Authentication</li>
+							<li>API Integration</li>
+						</ul>
+					</div>
+					<div
+						class="service-card"
+						onclick="trackEvent('service_view', {'service_name': 'titan'})"
+					>
+						<div class="service-icon">⚡</div>
+						<h3 class="service-title">TITAN</h3>
+						<div class="service-price">Starting at $15,000</div>
+						<p>
+							Legendary digital empires - full-stack mobile and
+							web applications with enterprise-level architecture.
+						</p>
+						<ul style="text-align: left; margin-top: 1rem">
+							<li>iOS & Android Apps</li>
+							<li>Cloud Infrastructure</li>
+							<li>Scalable Architecture</li>
+							<li>24/7 Support</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Portfolio Section -->
+		<section id="portfolio">
+			<div class="container">
+				<h2 class="section-title">Legendary Creations</h2>
+				<div class="portfolio-grid">
+					<div class="portfolio-item">
+						<div class="portfolio-image">
+							Featured Project Coming Soon
+						</div>
+						<div class="portfolio-content">
+							<h3>Project Odyssey</h3>
+							<p>
+								A revolutionary web application showcasing the
+								power of modern development. Built with
+								cutting-edge technologies.
+							</p>
+							<p>
+								<strong>Tech Stack:</strong> React, Node.js,
+								MongoDB
+							</p>
+						</div>
+					</div>
+					<div class="portfolio-item">
+						<div class="portfolio-image">
+							Featured Project Coming Soon
+						</div>
+						<div class="portfolio-content">
+							<h3>Mobile Athena</h3>
+							<p>
+								Cross-platform mobile application delivering
+								wisdom through intuitive design and seamless
+								functionality.
+							</p>
+							<p>
+								<strong>Tech Stack:</strong> React Native,
+								Firebase
+							</p>
+						</div>
+					</div>
+					<div class="portfolio-item">
+						<div class="portfolio-image">
+							Featured Project Coming Soon
+						</div>
+						<div class="portfolio-content">
+							<h3>E-Commerce Hermes</h3>
+							<p>
+								Lightning-fast e-commerce platform that delivers
+								messages of commerce with divine efficiency.
+							</p>
+							<p>
+								<strong>Tech Stack:</strong> Next.js, Stripe,
+								PostgreSQL
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Clients Section -->
+		<section id="clients">
+			<div class="container">
+				<h2 class="section-title">Trusted by Visionaries</h2>
+				<p
+					style="
+						text-align: center;
+						font-size: 1.1rem;
+						margin-bottom: 2rem;
+					"
+				>
+					We forge digital solutions for companies that dare to dream
+					big
+				</p>
+				<div class="client-logos">
+					<div class="client-logo">
+						<h3>Laser Tech</h3>
+						<p
+							style="
+								font-size: 0.9rem;
+								margin-top: 0.5rem;
+								opacity: 0.8;
+							"
+						>
+							Precision Engineering Solutions
+						</p>
+					</div>
+					<div class="client-logo" style="opacity: 0.6">
+						<h3>Your Company</h3>
+						<p style="font-size: 0.9rem; margin-top: 0.5rem">
+							Next Partnership
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Social Proof Stats Section -->
+		<section id="stats">
+			<div class="container">
+				<h2 class="section-title">Forged with Excellence</h2>
+				<div class="stats-grid">
+					<div class="stat-item">
+						<div class="interactive-counter" data-target="50">
+							0
+						</div>
+						<h4>Projects Completed</h4>
+						<p>Digital visions brought to life</p>
+					</div>
+					<div class="stat-item">
+						<div class="interactive-counter" data-target="100">
+							0
+						</div>
+						<h4>Client Satisfaction</h4>
+						<p>Percentage of happy clients</p>
+					</div>
+					<div class="stat-item">
+						<div class="interactive-counter" data-target="24">
+							0
+						</div>
+						<h4>Hour Support</h4>
+						<p>Always available for our clients</p>
+					</div>
+					<div class="stat-item">
+						<div class="interactive-counter" data-target="5">0</div>
+						<h4>Years Experience</h4>
+						<p>Crafting digital excellence</p>
+					</div>
+				</div>
+
+				<!-- Tech Stack -->
+				<h3
+					style="
+						text-align: center;
+						margin: 3rem 0 1rem;
+						color: var(--primary-color);
+					"
+				>
+					Technologies We Master
+				</h3>
+				<div class="tech-stack">
+					<div
+						class="tech-item"
+						onclick="trackEvent('tech_interest', {'technology': 'react'})"
+					>
+						<strong>⚛️ React</strong>
+					</div>
+					<div
+						class="tech-item"
+						onclick="trackEvent('tech_interest', {'technology': 'node'})"
+					>
+						<strong>🟢 Node.js</strong>
+					</div>
+					<div
+						class="tech-item"
+						onclick="trackEvent('tech_interest', {'technology': 'mobile'})"
+					>
+						<strong>📱 React Native</strong>
+					</div>
+					<div
+						class="tech-item"
+						onclick="trackEvent('tech_interest', {'technology': 'database'})"
+					>
+						<strong>🗄️ MongoDB</strong>
+					</div>
+					<div
+						class="tech-item"
+						onclick="trackEvent('tech_interest', {'technology': 'cloud'})"
+					>
+						<strong>☁️ AWS</strong>
+					</div>
+					<div
+						class="tech-item"
+						onclick="trackEvent('tech_interest', {'technology': 'frontend'})"
+					>
+						<strong>🎨 Next.js</strong>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="about">
+			<div class="container">
+				<h2 class="section-title">The Vision Behind the Eye</h2>
+				<div class="about-grid">
+					<div class="about-text">
+						<h3
+							style="
+								color: var(--primary-color);
+								margin-bottom: 1rem;
+							"
+						>
+							Our Digital Odyssey
+						</h3>
+						<p>
+							At Cyclops Digital, we believe that every great
+							digital creation begins with a singular vision—a
+							focused perspective that cuts through complexity to
+							reveal elegant solutions. Like the mythical cyclops
+							who forged the weapons of gods, we craft digital
+							experiences that are both powerful and purposeful.
+						</p>
+
+						<p>
+							Our mission transcends mere code and design. We are
+							digital architects, building bridges between
+							imagination and reality, between business needs and
+							user experiences. Every project is a quest, every
+							solution a legendary artifact in the making.
+						</p>
+
+						<p>
+							Founded on principles of innovation, precision, and
+							unwavering focus, Cyclops Digital continues to grow,
+							always maintaining our core vision: to transform
+							ambitious ideas into digital realities that stand
+							the test of time.
+						</p>
+					</div>
+					<div class="team-member">
+						<div class="member-avatar">👤</div>
+						<h3 style="color: var(--primary-color)">
+							Lead Developer
+						</h3>
+						<p
+							style="
+								color: var(--secondary-color);
+								margin-bottom: 1rem;
+							"
+						>
+							Chief Digital Architect
+						</p>
+						<p>
+							Wielding years of experience in full-stack
+							development, our lead architect transforms complex
+							challenges into elegant solutions. Specializing in
+							modern web technologies and mobile development.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact">
+			<div class="container">
+				<h2 class="section-title">Begin Your Digital Quest</h2>
+				<div class="contact-grid">
+					<div class="contact-form">
+						<h3
+							style="
+								margin-bottom: 1.5rem;
+								color: var(--primary-color);
+							"
+						>
+							Send Us Your Vision
+						</h3>
+						<form>
+							<div class="form-group">
+								<label for="name">Name</label>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label for="email">Email</label>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label for="project">Project Type</label>
+								<select
+									id="project"
+									name="project"
+									style="
+										width: 100%;
+										padding: 12px;
+										border: 2px solid rgba(0, 0, 0, 0.1);
+										border-radius: 8px;
+										background: var(--white);
+										color: var(--text-dark);
+										transition: all 0.3s ease;
+									"
+								>
+									<option value="">Select a service</option>
+									<option value="forge">
+										Forge - Basic Website
+									</option>
+									<option value="oracle">
+										Oracle - Advanced Web App
+									</option>
+									<option value="titan">
+										Titan - Full-Stack Solution
+									</option>
+									<option value="consultation">
+										Consultation
+									</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="message"
+									>Tell Us About Your Vision</label
+								>
+								<textarea
+									id="message"
+									name="message"
+									rows="5"
+									required
+								></textarea>
+							</div>
+							<button
+								type="submit"
+								class="cta-button"
+								style="width: 100%"
+								onclick="trackEvent('contact_form_submit', {'form_type': 'main_contact'})"
+							>
+								Launch Quest
+							</button>
+						</form>
+					</div>
+					<div class="contact-info">
+						<div class="contact-item">
+							<div class="contact-icon">📧</div>
+							<div>
+								<h4>Email</h4>
+								<p>info@cyclopsdigital.com</p>
+							</div>
+						</div>
+						<div
+							class="contact-item"
+							onclick="window.open('https://calendly.com/cyclopsdigital', '_blank')"
+						>
+							<div class="contact-icon">📅</div>
+							<div>
+								<h4>Schedule a Call</h4>
+								<p>Book a free consultation</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<div class="contact-icon">📱</div>
+							<div>
+								<h4>Phone</h4>
+								<p>Available upon request</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<div class="contact-icon">⏰</div>
+							<div>
+								<h4>Response Time</h4>
+								<p>Within 24 hours</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<div class="contact-icon">🌍</div>
+							<div>
+								<h4>Service Area</h4>
+								<p>Global Digital Solutions</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<div class="container">
+				<p>
+					&copy; 2024 Cyclops Digital. Forging the future, one vision
+					at a time.
+				</p>
+			</div>
+		</footer>
+
+		<script>
+			// PWA Installation
+			let deferredPrompt;
+
+			window.addEventListener("beforeinstallprompt", (e) => {
+				e.preventDefault();
+				deferredPrompt = e;
+				document.getElementById("pwaPrompt").classList.add("show");
+			});
+
+			document
+				.getElementById("pwaInstallBtn")
+				.addEventListener("click", async () => {
+					if (deferredPrompt) {
+						deferredPrompt.prompt();
+						const { outcome } = await deferredPrompt.userChoice;
+						trackEvent("pwa_install", { outcome: outcome });
+						deferredPrompt = null;
+						document
+							.getElementById("pwaPrompt")
+							.classList.remove("show");
+					}
+				});
+
+			document
+				.getElementById("pwaCloseBtn")
+				.addEventListener("click", () => {
+					document
+						.getElementById("pwaPrompt")
+						.classList.remove("show");
+					trackEvent("pwa_install", { outcome: "dismissed" });
+				});
+
+			// Animated Counters
+			function animateCounter(element) {
+				const target = parseInt(element.getAttribute("data-target"));
+				const increment = target / 100;
+				let current = 0;
+
+				const timer = setInterval(() => {
+					current += increment;
+					if (current >= target) {
+						element.textContent = target;
+						if (target === 100) element.textContent = target + "%";
+						clearInterval(timer);
+					} else {
+						element.textContent = Math.floor(current);
+						if (target === 100)
+							element.textContent = Math.floor(current) + "%";
+					}
+				}, 20);
+			}
+
+			// Intersection Observer for counters
+			const observerOptions = {
+				threshold: 0.5,
+				rootMargin: "0px 0px -100px 0px",
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const counters = entry.target.querySelectorAll(
+							".interactive-counter"
+						);
+						counters.forEach((counter) => {
+							if (!counter.classList.contains("animated")) {
+								counter.classList.add("animated");
+								animateCounter(counter);
+							}
+						});
+					}
+				});
+			}, observerOptions);
+
+			// Observe stats section
+			const statsSection = document.getElementById("stats");
+			if (statsSection) {
+				observer.observe(statsSection);
+			}
+
+			// FAQ Toggle
+			function toggleFaq(element) {
+				const faqItem = element.parentElement;
+				const isActive = faqItem.classList.contains("active");
+
+				// Close all FAQ items
+				document.querySelectorAll(".faq-item").forEach((item) => {
+					item.classList.remove("active");
+				});
+
+				// Open clicked item if it wasn't active
+				if (!isActive) {
+					faqItem.classList.add("active");
+					trackEvent("faq_interaction", {
+						question: element.textContent.trim(),
+					});
+				}
+			}
+
+			// Chat Widget
+			const chatToggle = document.getElementById("chatToggle");
+			const chatOptions = document.getElementById("chatOptions");
+			let chatOpen = false;
+
+			chatToggle.addEventListener("click", () => {
+				chatOpen = !chatOpen;
+				chatOptions.classList.toggle("show", chatOpen);
+				chatToggle.textContent = chatOpen ? "✕" : "💬";
+				trackEvent("chat_widget", {
+					action: chatOpen ? "open" : "close",
+				});
+			});
+
+			// Close chat when clicking outside
+			document.addEventListener("click", (e) => {
+				if (!e.target.closest(".chat-widget") && chatOpen) {
+					chatOpen = false;
+					chatOptions.classList.remove("show");
+					chatToggle.textContent = "💬";
+				}
+			});
+
+			// Service Worker Registration (PWA)
+			if ("serviceWorker" in navigator) {
+				window.addEventListener("load", () => {
+					navigator.serviceWorker
+						.register("/sw.js")
+						.then((registration) => {
+							console.log("SW registered: ", registration);
+						})
+						.catch((registrationError) => {
+							console.log(
+								"SW registration failed: ",
+								registrationError
+							);
+						});
+				});
+			}
+
+			// Mobile Menu Management
+			const mobileMenuToggle =
+				document.getElementById("mobileMenuToggle");
+			const mobileNav = document.getElementById("mobileNav");
+			const hamburgerIcon = document.getElementById("hamburgerIcon");
+			const menuLabel = document.getElementById("menuLabel");
+
+			function toggleMobileMenu() {
+				const isOpen = mobileNav.classList.contains("active");
+
+				if (isOpen) {
+					closeMobileMenu();
+				} else {
+					openMobileMenu();
+				}
+			}
+
+			function openMobileMenu() {
+				mobileNav.classList.add("active");
+				hamburgerIcon.textContent = "✕";
+				menuLabel.textContent = "Close";
+				mobileMenuToggle.setAttribute("aria-expanded", "true");
+
+				// Focus management for accessibility
+				const firstLink = mobileNav.querySelector("a");
+				if (firstLink) {
+					firstLink.focus();
+				}
+			}
+
+			function closeMobileMenu() {
+				mobileNav.classList.remove("active");
+				hamburgerIcon.textContent = "☰";
+				menuLabel.textContent = "Menu";
+				mobileMenuToggle.setAttribute("aria-expanded", "false");
+			}
+
+			// Mobile menu toggle event
+			mobileMenuToggle.addEventListener("click", toggleMobileMenu);
+
+			// Close mobile menu when clicking outside
+			document.addEventListener("click", function (event) {
+				if (
+					!mobileNav.contains(event.target) &&
+					!mobileMenuToggle.contains(event.target)
+				) {
+					closeMobileMenu();
+				}
+			});
+
+			// Close mobile menu on Escape key
+			document.addEventListener("keydown", function (event) {
+				if (
+					event.key === "Escape" &&
+					mobileNav.classList.contains("active")
+				) {
+					closeMobileMenu();
+					mobileMenuToggle.focus();
+				}
+			});
+
+			// Handle keyboard navigation in mobile menu
+			mobileNav.addEventListener("keydown", function (event) {
+				if (event.key === "Tab") {
+					const focusableElements =
+						mobileNav.querySelectorAll("a, button");
+					const firstElement = focusableElements[0];
+					const lastElement =
+						focusableElements[focusableElements.length - 1];
+
+					if (
+						event.shiftKey &&
+						document.activeElement === firstElement
+					) {
+						event.preventDefault();
+						lastElement.focus();
+					} else if (
+						!event.shiftKey &&
+						document.activeElement === lastElement
+					) {
+						event.preventDefault();
+						firstElement.focus();
+					}
+				}
+			});
+
+			// Theme Management
+			const themeToggle = document.getElementById("themeToggle");
+			const mobileThemeToggle =
+				document.getElementById("mobileThemeToggle");
+			const themeIcon = document.getElementById("themeIcon");
+			const themeText = document.getElementById("themeText");
+			const mobileThemeIcon = document.getElementById("mobileThemeIcon");
+			const mobileThemeText = document.getElementById("mobileThemeText");
+
+			// Check for saved theme preference or default to system preference
+			const getPreferredTheme = () => {
+				const savedTheme = localStorage.getItem("theme");
+				if (savedTheme) {
+					return savedTheme;
+				}
+				return window.matchMedia("(prefers-color-scheme: dark)").matches
+					? "dark"
+					: "light";
+			};
+
+			// Set theme
+			const setTheme = (theme) => {
+				document.documentElement.setAttribute("data-theme", theme);
+				localStorage.setItem("theme", theme);
+
+				if (theme === "dark") {
+					themeIcon.textContent = "🌙";
+					themeText.textContent = "Nyx";
+					mobileThemeIcon.textContent = "🌙";
+					mobileThemeText.textContent = "Nyx";
+				} else {
+					themeIcon.textContent = "☀️";
+					themeText.textContent = "Helios";
+					mobileThemeIcon.textContent = "☀️";
+					mobileThemeText.textContent = "Helios";
+				}
+			};
+
+			// Initialize theme
+			setTheme(getPreferredTheme());
+
+			// Theme toggle events
+			themeToggle.addEventListener("click", () => {
+				const currentTheme =
+					document.documentElement.getAttribute("data-theme");
+				const newTheme = currentTheme === "dark" ? "light" : "dark";
+				setTheme(newTheme);
+				trackEvent("theme_change", { new_theme: newTheme });
+			});
+
+			mobileThemeToggle.addEventListener("click", () => {
+				const currentTheme =
+					document.documentElement.getAttribute("data-theme");
+				const newTheme = currentTheme === "dark" ? "light" : "dark";
+				setTheme(newTheme);
+				trackEvent("theme_change", { new_theme: newTheme });
+			});
+
+			// Listen for system theme changes
+			window
+				.matchMedia("(prefers-color-scheme: dark)")
+				.addEventListener("change", (e) => {
+					if (!localStorage.getItem("theme")) {
+						setTheme(e.matches ? "dark" : "light");
+					}
+				});
+
+			// Simple form handling
+			document
+				.querySelector("form")
+				.addEventListener("submit", function (e) {
+					e.preventDefault();
+
+					// Track form submission
+					const serviceType =
+						document.getElementById("project").value;
+					trackBusinessInquiry(serviceType || "general");
+					trackEvent("form_submission", {
+						form_name: "contact_form",
+						service_type: serviceType,
+					});
+
+					alert(
+						"Thank you for your message! We'll be in touch within 24 hours to begin forging your digital vision."
+					);
+				});
+
+			// Smooth scrolling for navigation links
+			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+				anchor.addEventListener("click", function (e) {
+					e.preventDefault();
+					const targetId = this.getAttribute("href");
+					const targetSection = document.querySelector(targetId);
+					if (targetSection) {
+						targetSection.scrollIntoView({
+							behavior: "smooth",
+						});
+						trackEvent("navigation", {
+							section: targetId.substring(1),
+						});
+					}
+				});
+			});
+
+			// Add navbar background on scroll
+			window.addEventListener("scroll", function () {
+				const nav = document.querySelector("nav");
+				const currentTheme =
+					document.documentElement.getAttribute("data-theme");
+				if (window.scrollY > 50) {
+					if (currentTheme === "dark") {
+						nav.style.background = "rgba(15, 20, 25, 0.98)";
+					} else {
+						nav.style.background = "rgba(52, 73, 94, 0.98)";
+					}
+				} else {
+					if (currentTheme === "dark") {
+						nav.style.background = "rgba(15, 20, 25, 0.95)";
+					} else {
+						nav.style.background = "rgba(52, 73, 94, 0.95)";
+					}
+				}
+			});
+		</script>
+	</body>
 </html>
