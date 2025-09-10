@@ -8,35 +8,6 @@
 	</div>
 </footer>
 
-<!-- Chat Widget -->
-<div class="chat-widget">
-	<div class="chat-options" id="chatOptions">
-		<a
-			href="mailto:info@cyclopsdigital.com"
-			class="chat-option"
-			onclick="trackEvent('chat_contact', {'method': 'email'})"
-		>
-			📧 Email Us
-		</a>
-		<a
-			href="https://calendly.com/cyclopsdigital"
-			target="_blank"
-			class="chat-option"
-			onclick="trackEvent('chat_contact', {'method': 'calendar'})"
-		>
-			📅 Schedule Call
-		</a>
-		<a
-			href="tel:+1234567890"
-			class="chat-option"
-			onclick="trackEvent('chat_contact', {'method': 'phone'})"
-		>
-			📞 Call Now
-		</a>
-	</div>
-	<button class="chat-toggle" id="chatToggle">💬</button>
-</div>
-
 <!-- PWA Install Prompt -->
 <div class="pwa-install-prompt" id="pwaPrompt">
 	<div>
@@ -920,78 +891,27 @@
 				color: #ffffff;
 			}
 
-			/* Responsive Design - Right to Left Collapse */
-			@media (max-width: 1200px) {
-				/* At 1200px, show hamburger menu but keep all nav items visible */
+			/* Responsive Navigation Modern */
+			@media (max-width: 1024px) {
+				.nav-links {
+					display: none;
+				}
 				.mobile-menu-toggle {
 					display: flex;
 				}
-			}
-
-			@media (max-width: 1024px) {
-				.nav-link-faq {
-					display: none;
+				.mobile-nav {
+					display: block;
 				}
 			}
-
-			@media (max-width: 900px) {
-				.nav-link-resources {
-					display: none;
+			@media (min-width: 1025px) {
+				.mobile-nav {
+					display: none !important;
 				}
-			}
-
-			@media (max-width: 768px) {
-				.nav-link-about {
-					display: none;
+				.mobile-menu-toggle {
+					display: none !important;
 				}
-
-				/* Hide theme text on smaller screens */
-				.theme-text {
-					display: none;
-				}
-
-				.theme-toggle {
-					padding: 8px 12px;
-				}
-			}
-
-			@media (max-width: 650px) {
-				.nav-link-clients {
-					display: none;
-				}
-
-				.hero h1 {
-					font-size: 2.5rem;
-				}
-
-				.hero-subtitle {
-					font-size: 1.2rem;
-				}
-
-				.cyclops-eye {
-					display: none;
-				}
-
-				.about-grid,
-				.contact-grid {
-					grid-template-columns: 1fr;
-				}
-
-				.services-grid,
-				.portfolio-grid {
-					grid-template-columns: 1fr;
-				}
-			}
-
-			@media (max-width: 480px) {
-				.nav-link-portfolio {
-					display: none;
-				}
-			}
-
-			@media (max-width: 380px) {
-				.nav-link-services {
-					display: none;
+				.nav-links {
+					display: flex !important;
 				}
 			}
 
@@ -1145,71 +1065,6 @@
 				color: var(--primary-color);
 				margin-bottom: 1rem;
 				font-size: 1.2rem;
-			}
-
-			/* Chat Widget */
-			.chat-widget {
-				position: fixed;
-				bottom: 20px;
-				right: 20px;
-				z-index: 1000;
-			}
-
-			.chat-options {
-				display: flex;
-				flex-direction: column;
-				gap: 10px;
-				margin-bottom: 10px;
-				opacity: 0;
-				transform: translateY(20px);
-				transition: all 0.3s ease;
-			}
-
-			.chat-options.show {
-				opacity: 1;
-				transform: translateY(0);
-			}
-
-			.chat-option {
-				background: var(--white);
-				border: 2px solid var(--accent-gold);
-				border-radius: 50px;
-				padding: 12px 20px;
-				color: var(--primary-color);
-				text-decoration: none;
-				font-size: 0.9rem;
-				font-weight: 600;
-				transition: all 0.3s ease;
-				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-			}
-
-			[data-theme="dark"] .chat-option {
-				background: var(--light-gray);
-				color: var(--text-dark);
-			}
-
-			.chat-option:hover {
-				background: var(--accent-gold);
-				color: white;
-				transform: translateX(-5px);
-			}
-
-			.chat-toggle {
-				background: var(--accent-gold);
-				border: none;
-				border-radius: 50%;
-				width: 60px;
-				height: 60px;
-				color: white;
-				font-size: 1.5rem;
-				cursor: pointer;
-				box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
-				transition: all 0.3s ease;
-			}
-
-			.chat-toggle:hover {
-				background: #e67e22;
-				transform: scale(1.1);
 			}
 
 			/* Social Proof Stats */
@@ -1942,29 +1797,6 @@
 					});
 				}
 			}
-
-			// Chat Widget
-			const chatToggle = document.getElementById("chatToggle");
-			const chatOptions = document.getElementById("chatOptions");
-			let chatOpen = false;
-
-			chatToggle.addEventListener("click", () => {
-				chatOpen = !chatOpen;
-				chatOptions.classList.toggle("show", chatOpen);
-				chatToggle.textContent = chatOpen ? "✕" : "💬";
-				trackEvent("chat_widget", {
-					action: chatOpen ? "open" : "close",
-				});
-			});
-
-			// Close chat when clicking outside
-			document.addEventListener("click", (e) => {
-				if (!e.target.closest(".chat-widget") && chatOpen) {
-					chatOpen = false;
-					chatOptions.classList.remove("show");
-					chatToggle.textContent = "💬";
-				}
-			});
 
 			// Service Worker Registration (PWA)
 			if ("serviceWorker" in navigator) {
